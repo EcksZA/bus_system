@@ -26,6 +26,16 @@ class BusesController < ApplicationController
     @bus = Bus.find(params[:id])
   end
 
+  def update
+    @bus = Bus.find(params[:id])
+    if @bus.update(bus_params)
+      flash[:notice] = "Bus has been updated!"
+      redirect_to bus_path(@bus)
+    else
+      render 'edit'
+    end
+  end
+
 private
   def bus_params
     params.require(:bus).permit(:name)
