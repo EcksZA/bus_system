@@ -11,4 +11,19 @@ class LinesController < ApplicationController
   def new
     @line = Line.new
   end
+
+  def create
+    @line = Line.new(line_params)
+    if @line.save
+      flash[:notice] = "New Line Created!"
+      redirect_to line_path(@line)
+    else
+      render 'new'
+    end
+  end
+
+private
+  def line_params
+    params.require(:line).permit(:name)
+  end
 end
