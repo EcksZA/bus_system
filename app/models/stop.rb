@@ -4,4 +4,5 @@ class Stop < ActiveRecord::Base
   validates :line_id, presence: true
 
   belongs_to :bus
+  belongs_to :line
 end
