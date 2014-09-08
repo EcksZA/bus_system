@@ -1,0 +1,10 @@
+<% content_for(:title, "All | line") %>
+
+<h1> Lines List </h1>
+
+<ul>
+  <% @lines.each do |line| %>
+  <li><%= line.name %></li>
+  <% end %>
+</ul>
+
