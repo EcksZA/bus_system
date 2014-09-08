@@ -36,6 +36,13 @@ class BusesController < ApplicationController
     end
   end
 
+  def destroy
+    @bus = Bus.find(params[:id])
+    @bus.destroy
+    flash[:notice] = "Bus has been deleted!"
+    redirect_to buses_path
+  end
+
 private
   def bus_params
     params.require(:bus).permit(:name)
