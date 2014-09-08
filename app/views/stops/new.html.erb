@@ -1,0 +1,12 @@
+<% content_for(:title, 'New | Stop') %>
+
+<%= form_for(@stop) do |f| %>
+  <div class='form-group'>
+    <%= f.select :bus_id, @buses.map {|every| every.name} %>
+    <%= f.select :line_id, @lines.map {|every| every.name} %>
+  </div>
+  <%= f.submit(:class => 'btn btn-success') %>
+<% end %>
+
+
+
