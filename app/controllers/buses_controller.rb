@@ -8,4 +8,8 @@ class BusesController < ApplicationController
     @bus = Bus.find(params[:id])
   end
 
+  def new
+    @bus = Bus.new
+  end
+
 end
