@@ -22,6 +22,10 @@ class LinesController < ApplicationController
     end
   end
 
+  def edit
+    @line = Line.find(params[:id])
+  end
+
 private
   def line_params
     params.require(:line).permit(:name)
