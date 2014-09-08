@@ -36,6 +36,13 @@ class LinesController < ApplicationController
     end
   end
 
+  def destroy
+    @line = Line.find(params[:id])
+    @line.destroy
+    flash[:notice] = "You have destroyed the line!"
+    redirect_to lines_path
+  end
+
 private
   def line_params
     params.require(:line).permit(:name)
