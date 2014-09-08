@@ -1,0 +1,9 @@
+<% content_for(:title, "All | Bus") %>
+
+<h1>Bus List</h1>
+
+<ul>
+  <% @buses.each do |bus| %>
+    <li><%= bus.name %></li>
+  <% end %>
+</ul>
