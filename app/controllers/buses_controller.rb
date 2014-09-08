@@ -22,6 +22,10 @@ class BusesController < ApplicationController
     end
   end
 
+  def edit
+    @bus = Bus.find(params[:id])
+  end
+
 private
   def bus_params
     params.require(:bus).permit(:name)
