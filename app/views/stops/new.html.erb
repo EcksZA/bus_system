@@ -2,8 +2,8 @@
 
 <%= form_for(@stop) do |f| %>
   <div class='form-group'>
-    <%= f.select :bus_id, @buses.map {|every| every.name} %>
-    <%= f.select :line_id, @lines.map {|every| every.name} %>
+    <%= f.collection_select :bus_id, Bus.all, :id, :name, prompt: 'Choose A Bus Station' %>
+    <%= f.collection_select :line_id, Line.all, :id, :name, prompt: 'Choose A Line' %>
   </div>
   <%= f.submit(:class => 'btn btn-success') %>
 <% end %>
