@@ -23,10 +23,12 @@ class BusesController < ApplicationController
   end
 
   def edit
+    @lines = Line.all
     @bus = Bus.find(params[:id])
   end
 
   def update
+    @lines = Line.all
     @bus = Bus.find(params[:id])
     if @bus.update(bus_params)
       flash[:notice] = "Bus has been updated!"
@@ -45,7 +47,7 @@ class BusesController < ApplicationController
 
 private
   def bus_params
-    params.require(:bus).permit(:name)
+    params.require(:bus).permit(:name, :line_ids => [])
   end
 
 end

@@ -1,3 +1,9 @@
 <% content_for(:title, "Show | Line") %>
 
 <h1><%= @line.name %></h1>
+
+<ul>
+  <% @line.buses.each do |bus| %>
+    <li><%= bus.name %></li>
+  <% end %>
+</ul>
